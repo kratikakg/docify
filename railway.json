@@ -1,0 +1,22 @@
+{
+  "build": {
+    "builder": "nixpacks",
+    "plan": {
+      "phases": {
+        "install": {
+          "cmds": [
+            "cd server && npm install"
+          ]
+        },
+        "build": {
+          "cmds": [
+            "cd server && npm run build"
+          ]
+        }
+      },
+      "start": {
+        "cmd": "cd server && npm start"
+      }
+    }
+  }
+}
