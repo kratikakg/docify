@@ -4,13 +4,15 @@ const Document = require("./Document");
 const defaultValue = "";
 
 async function connectToMongoDB() {
-  await mongoose.connect("mongodb://127.0.0.1/docify");
+  await mongoose.connect(
+    process.env.MONGODB_URI || "mongodb://127.0.0.1/docify"
+  );
 }
 
 connectToMongoDB().then(() => {
-  const io = require("socket.io")(3001, {
+  const io = require("socket.io")(process.env.PORT || 3001, {
     cors: {
-      origin: "http://localhost:3000",
+      origin: "*",
       methods: ["GET", "POST"],
     },
   });
