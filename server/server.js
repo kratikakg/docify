@@ -3,16 +3,18 @@ const Document = require("./Document");
 
 const defaultValue = "";
 
+// Connect to MongoDB using environment variable
 async function connectToMongoDB() {
-  await mongoose.connect(
-    process.env.MONGODB_URI || "mongodb://127.0.0.1/docify"
-  );
+  await mongoose.connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
 }
 
 connectToMongoDB().then(() => {
   const io = require("socket.io")(process.env.PORT || 3001, {
     cors: {
-      origin: "*",
+      origin: process.env.CLIENT_URL || "http://localhost:3000",
       methods: ["GET", "POST"],
     },
   });

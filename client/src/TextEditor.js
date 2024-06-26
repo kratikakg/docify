@@ -23,7 +23,9 @@ export default function TextEditor() {
   const [quill, setQuill] = useState(null);
 
   useEffect(() => {
-    const s = io("http://localhost:3001");
+    const socketUrl =
+      process.env.REACT_APP_SOCKET_URL || "http://localhost:3001";
+    const s = io(socketUrl);
     setSocket(s);
     return () => {
       s.disconnect();
