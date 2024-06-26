@@ -24,7 +24,9 @@ export default function TextEditor() {
 
   useEffect(() => {
     const socketUrl =
-      process.env.REACT_APP_SOCKET_URL || "http://localhost:3001";
+      process.env.REACT_APP_SOCKET_URL ||
+      "http://localhost:3001" ||
+      "https://docify.netlify.app/";
     const s = io(socketUrl);
     setSocket(s);
     return () => {
