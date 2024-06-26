@@ -1,4 +1,5 @@
 import React from "react";
+import { createRoot } from "react-dom/client";
 import TextEditor from "./TextEditor";
 import {
   BrowserRouter as Router,
