@@ -26,7 +26,6 @@ export default function TextEditor() {
     const socketUrl =
       process.env.REACT_APP_SOCKET_URL ||
       "http://localhost:3001" ||
-      "https://docify.netlify.app/" ||
       "https://docify-red.vercel.app/";
     const s = io(socketUrl);
     setSocket(s);
