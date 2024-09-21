@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm install",
+    "build": "echo 'No build needed'",
     "migrate": "echo 'No migrations needed for MongoDB'",
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
