@@ -3,7 +3,6 @@ const Document = require("./Document");
 
 const defaultValue = "";
 
-// Connect to MongoDB using environment variable
 async function connectToMongoDB() {
   await mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
