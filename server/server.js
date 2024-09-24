@@ -1,13 +1,11 @@
+require("dotenv").config();
 const mongoose = require("mongoose");
 const Document = require("./Document");
 
 const defaultValue = "";
 
 async function connectToMongoDB() {
-  await mongoose.connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
+  await mongoose.connect(process.env.MONGODB_URI);
 }
 
 connectToMongoDB().then(() => {
